@@ -1,0 +1,96 @@
+* {
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+#page-wrapper {
+	width: 80%;
+	margin: 2rem auto 0 auto;
+}
+
+nav {
+	width: 100%;
+	margin-bottom: 1rem;
+	/*text-align: center;*/
+	background-color: #ffb4b0;
+	border: 2px solid black;
+}
+
+ul {
+	list-style: none;
+}
+
+ul li {
+	display: inline-block;
+	padding-right: 0.5rem;
+	padding-left: 0.25rem;
+}
+
+ul li:not(:last-child) {
+	border-right: 1px solid black;
+}
+
+#controls {
+	float: left;
+	width: 13rem;
+	height: 22rem;
+	padding: 0.75rem;
+	margin-right: 1rem;
+	background-color: #4dd7fa;
+	border: 2px solid black;
+}
+
+#song-length-range {
+	width: 100%;
+}
+
+select {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.checkbox-pair {
+	display: block;
+	width: 50%;
+	float: left;
+}
+
+.blocked {
+	display: block;
+}
+
+.clearfix:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+#filter-button {
+	display: block;
+	padding: 0.25rem 2rem;
+	margin: 1rem auto 0.25rem auto;
+}
+
+#songs {
+	/*float: right;*/
+	/*width: 65%;*/
+	height: 22rem;
+	overflow: hidden;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
+	background-color: #fefac0;
+	border: 2px solid black;
+}
+
+.song-info h1 {
+	margin-left: 0.75rem;
+	color: #785616;
+}
+
+.song-info span {
+	padding-right: 0.75rem;
+	padding-left: 0.5rem;
+}
+
+.song-info span:not(:last-child) {
+	border-right: 1px solid black;
+}
