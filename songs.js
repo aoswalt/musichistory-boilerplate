@@ -1,49 +1,6 @@
-'use strict';
+/* jshint devel:true */
 
-var songList = [
-  {
-    title: "Legs",
-    artist: "ZZ Top",
-    album: "Eliminator",
-    genre: "Rock"
-  },
-  {
-    title: "The Logical Song",
-    artist: "Supertramp",
-    album: "Breakfast in America",
-    genre: "Pop"
-  },
-  {
-    title: "Another Brick in the Wall",
-    artist: "Pink Floyd",
-    album: "The Wall",
-    genre: "Rock"
-  },
-  {
-    title: "Welcome to the Jungle",
-    artist: "Guns & Roses",
-    album: "Appetite for Destruction",
-    genre: "Rock"
-  },
-  {
-    title: "Ironic",
-    artist: "Alanis Morisette",
-    album: "Jagged Little Pill",
-    genre: "Pop"
-  },
-  {
-    title: "The Air That I Breathe",
-    artist: "All That Remains",
-    album: "The Fall of Ideals",
-    genre: "Rock"
-  },
-  {
-    title: "Holy Diver",
-    artist: "Killswitch Engage",
-    album: "As Daylight Dies",
-    genre: "Rock"
-  }
-];
+'use strict';
 
 (function() {
   var listView = document.getElementById("view-content");
@@ -82,5 +39,15 @@ var songList = [
     addView.style.display = "none";
   });
 
-  songList.forEach((s) => { insertSong(s); });
+
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener("load", function() {
+    var songList = JSON.parse(this.responseText);
+    songList.songs.forEach((s) => { insertSong(s); });
+  });
+  xhr.addEventListener("error", function() {
+    alert(this.responseText);
+  });
+  xhr.open("GET", "songs.json");
+  xhr.send();
 }());
