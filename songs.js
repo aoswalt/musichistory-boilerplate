@@ -44,6 +44,8 @@ var songList = [
 ];
 
 (function() {
+  var listView = document.getElementById("view-content");
+  var addView = document.getElementById("add-content");
   var songArea = document.getElementById("songs");
 
   function insertSong(song) {
@@ -55,6 +57,16 @@ var songList = [
         <span class="genre">${song.genre}</span>
       </section>`;
   }
+
+  document.getElementById("a-view").addEventListener("click", function() {
+    listView.style.display = "block";
+    addView.style.display = "none";
+  })
+
+  document.getElementById("a-add").addEventListener("click", function() {
+    listView.style.display = "none";
+    addView.style.display = "block";
+  })
 
   songList.forEach((s) => { insertSong(s); });
 }());
