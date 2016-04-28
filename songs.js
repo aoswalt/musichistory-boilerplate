@@ -8,13 +8,19 @@
   var songArea = document.getElementById("songs");
 
   function insertSong(song) {
-    songArea.innerHTML += `
-      <section class="song-info">
-        <h1>${song.title}</h1>
-        <span class="artist-name">${song.artist}</span>
-        <span class="album-name">${song.album}</span>
-        <span class="genre">${song.genre}</span>
-      </section>`;
+    var newSongElement = document.createElement("section");
+    newSongElement.className = "song-info";
+    newSongElement.innerHTML += `
+      <h1>${song.title}</h1>
+      <span class="artist-name">${song.artist}</span>
+      <span class="album-name">${song.album}</span>
+      <span class="genre">${song.genre}</span>
+      <input type="button" class="delete-button" value="Delete">`;
+    songArea.appendChild(newSongElement);
+
+    newSongElement.getElementsByClassName("delete-button")[0].addEventListener("click", function(event) {
+      event.target.parentElement.parentElement.removeChild(event.target.parentElement);
+    });
   }
 
   document.getElementById("a-view").addEventListener("click", function() {
