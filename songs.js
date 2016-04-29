@@ -6,6 +6,7 @@
   var listView = document.getElementById("view-content");
   var addView = document.getElementById("add-content");
   var songArea = document.getElementById("songs");
+  var moreButton = document.getElementById("more-button");
 
   function insertSong(song) {
     var newSongElement = document.createElement("section");
@@ -16,7 +17,7 @@
       <span class="album-name">${song.album}</span>
       <span class="genre">${song.genre}</span>
       <input type="button" class="delete-button" value="Delete">`;
-    songArea.appendChild(newSongElement);
+    songArea.insertBefore(newSongElement, moreButton);
 
     newSongElement.getElementsByClassName("delete-button")[0].addEventListener("click", function(event) {
       event.target.parentElement.parentElement.removeChild(event.target.parentElement);
@@ -43,6 +44,12 @@
 
     listView.style.display = "block";
     addView.style.display = "none";
+  });
+
+  moreButton.addEventListener("click", function(event) {
+    xhr.open("GET", "songs2.json");
+    xhr.send();
+    event.target.disabled = true;
   });
 
 
